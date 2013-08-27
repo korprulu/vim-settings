@@ -34,3 +34,9 @@
 [submodule "bundle/autoformat"]
 	path = bundle/autoformat
 	url = git@github.com:Chiel92/vim-autoformat.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = git@github.com:tpope/vim-markdown.git
+[submodule "bundle/vim-literate-coffeescript"]
+	path = bundle/vim-literate-coffeescript
+	url = git@github.com:mintplant/vim-literate-coffeescript.git
