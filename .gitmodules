@@ -40,3 +40,6 @@
 [submodule "bundle/vim-literate-coffeescript"]
 	path = bundle/vim-literate-coffeescript
 	url = git@github.com:mintplant/vim-literate-coffeescript.git
+[submodule "bundle/tern"]
+	path = bundle/tern
+	url = git@github.com:marijnh/tern_for_vim.git
