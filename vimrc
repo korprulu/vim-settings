@@ -21,7 +21,7 @@ set autowrite
 set cursorline
 set modeline
 set modelines=2
-
+set sessionoptions=tabpages
 " autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
