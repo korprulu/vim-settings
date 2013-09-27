@@ -53,3 +53,6 @@ let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
 
 " supertab
 let g:SuperTabClosePreviewOnPopupClose = 1
+
+" jshint2
+let jshint2_save = 1
