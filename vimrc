@@ -21,11 +21,11 @@ set autowrite
 set cursorline
 set modeline
 set modelines=2
-set sessionoptions=tabpages
-
+set guifont=Inconsolata\ 12
 " autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
+set sessionoptions=tabpages
 
 " map key
 map <leader>td <Plug>TaskList
@@ -40,7 +40,13 @@ map <A-p> :cprevious<CR>
 " copy to chipboard
 map <C-c> <S-"><S-+>y<CR>
 " past from chipboard
-map <C-v> <S-"><S-+>p<CR>
+map <C-p> <S-"><S-+>p<CR>
+
+" switch tab
+map <C-Left> :tabprevious<CR>
+imap <C-Left> <ESC>:tabprevious<CR>
+map <C-Right> :tabnext<CR>
+imap <C-Right> <ESC>:tabnext<CR>
 
 " pymode
 let g:pymode_run = 1
@@ -62,3 +68,41 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 
 " jshint2
 let jshint2_save = 1
+
+" show tab index in tabline
+" Rename tabs to show tab number.
+" (Based on http://stackoverflow.com/questions/5927952/whats-implementation-of-vims-default-tabline-function)
+highlight TabLineSel ctermfg=yellow ctermbg=darkblue
+highlight TabLineFill ctermfg=Black
+
+if exists("+showtabline")
+    function MyTabLine()
+      let s = ''
+      let t = tabpagenr()
+      let i = 1
+      while i <= tabpagenr('$')
+          let buflist = tabpagebuflist(i)
+          let winnr = tabpagewinnr(i)
+          let s .= '%' . i . 'T'
+          let s .= (i == t ? '%1*' : '%2*')
+          let s .= ' '
+          let s .= '%#TabNum#'
+          let s .= i . ')'
+          let s .= ' %*'
+          let s .= (i == t ? '%#TabLineSel#' : '%#TabLine#')
+          let file = bufname(buflist[winnr - 1])
+          let file = fnamemodify(file, ':p:t')
+          if file == ''
+              let file = '[No Name]'
+          endif
+          let s .= file
+          let i = i + 1
+      endwhile
+      let s .= '%T%#TabLineFill#%='
+      let s .= (tabpagenr('$') > 1 ? '%999XX' : 'X')
+      return s
+    endfunction
+    set tabline=%!MyTabLine()
+    set showtabline=1
+    highlight link TabNum Special
+endif
