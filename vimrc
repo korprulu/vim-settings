@@ -21,19 +21,29 @@ set autowrite
 set cursorline
 set modeline
 set modelines=2
-
+set guifont=Inconsolata\ 12
 " autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 
+" map key
 map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 map <leader>n :NERDTreeToggle<CR>
 nmap <leader>a <Esc>:Ack!
 
+" used after vimgrep
+map <A-n> :cnext<CR>
+map <A-p> :cprevious<CR>
+
+" copy to chipboard
+map <C-c> <S-"><S-+>y<CR>
+" past from chipboard
+map <C-v> <S-"><S-+>p<CR>
+
 " pymode
 let g:pymode_run = 1
-let g:pymode_run_key = 'R'
+let g:pymode_run_key = '<leader>r'
 let g:pymode_doc = 0 " disable pydoc plugin
 let g:pymode_rope = 0
 " let g:pymode_rope_enable_autoimport = 1
@@ -47,9 +57,4 @@ let g:pymode_utils_whitespaces = 1
 let g:pymode_indent = 1
 " Enable pymode's custom syntax highlighting
 let g:pymode_syntax = 1
-
-" pydiction
-let g:pydiction_location = '~/.vim/bundle/pydiction/complete-dict'
-
-" supertab
 let g:SuperTabClosePreviewOnPopupClose = 1
