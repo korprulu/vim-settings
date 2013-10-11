@@ -21,7 +21,8 @@ set autowrite
 set cursorline
 set modeline
 set modelines=2
-set guifont=Inconsolata\ 12
+set sessionoptions=tabpages
+
 " autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
@@ -58,3 +59,6 @@ let g:pymode_indent = 1
 " Enable pymode's custom syntax highlighting
 let g:pymode_syntax = 1
 let g:SuperTabClosePreviewOnPopupClose = 1
+
+" jshint2
+let jshint2_save = 1
