@@ -34,8 +34,8 @@ map <leader>n :NERDTreeToggle<CR>
 nmap <leader>a <Esc>:Ack!
 
 " used after vimgrep
-map <A-n> :cnext<CR>
-map <A-p> :cprevious<CR>
+noremap <S-n> :cnext<CR>
+noremap <S-p> :cprevious<CR>
 
 " copy to chipboard
 map <C-c> <S-"><S-+>y<CR>
