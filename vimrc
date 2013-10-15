@@ -34,13 +34,13 @@ map <leader>n :NERDTreeToggle<CR>
 nmap <leader>a <Esc>:Ack!
 
 " used after vimgrep
-noremap <S-n> :cnext<CR>
-noremap <S-p> :cprevious<CR>
+nmap <ESC>n :cnext<CR>
+nmap <ESC>p :cprevious<CR>
 
 " copy to chipboard
-map <C-c> <S-"><S-+>y<CR>
+map <C-c> "+y<CR>
 " past from chipboard
-map <C-p> <S-"><S-+>p<CR>
+map <C-p> "+p<CR>
 
 " switch tab
 map <C-Left> :tabprevious<CR>
