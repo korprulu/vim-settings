@@ -7,7 +7,6 @@ filetype plugin indent on
 syntax on
 
 " let g:pyflakes_use_quickfix = 0
-
 set number
 set smartindent
 set tabstop=4
@@ -36,11 +35,6 @@ nmap <leader>a <Esc>:Ack!
 " used after vimgrep
 nmap <ESC>n :cnext<CR>
 nmap <ESC>p :cprevious<CR>
-
-" copy to chipboard
-map <C-c> "+y<CR>
-" past from chipboard
-map <C-p> "+p<CR>
 
 " switch tab
 map <C-Left> :tabprevious<CR>
