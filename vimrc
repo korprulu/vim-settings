@@ -25,6 +25,8 @@ set guifont=Inconsolata\ 12
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
 set sessionoptions=tabpages
+" enable backspace to delete word (fix when upgrade to 7.4)
+set backspace=2
 
 " map key
 map <leader>td <Plug>TaskList
@@ -100,3 +102,7 @@ if exists("+showtabline")
     set showtabline=1
     highlight link TabNum Special
 endif
+
+" vim-javascript-syntax
+au FileType javascript call JavaScriptFold()
+
