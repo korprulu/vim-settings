@@ -103,6 +103,3 @@ if exists("+showtabline")
     highlight link TabNum Special
 endif
 
-" vim-javascript-syntax
-au FileType javascript call JavaScriptFold()
-
