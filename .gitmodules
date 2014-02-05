@@ -40,9 +40,6 @@
 [submodule "bundle/vim-literate-coffeescript"]
 	path = bundle/vim-literate-coffeescript
 	url = git@github.com:mintplant/vim-literate-coffeescript.git
-[submodule "bundle/tern"]
-	path = bundle/tern
-	url = git@github.com:marijnh/tern_for_vim.git
 [submodule "bundle/jshint2"]
 	path = bundle/jshint2
 	url = git@github.com:Shutnik/jshint2.vim.git
@@ -55,3 +52,6 @@
 [submodule "bundle/scss-syntax"]
 	path = bundle/scss-syntax
 	url = git@github.com:cakebaker/scss-syntax.vim.git
+[submodule "bundle/tern_for_vim"]
+	path = bundle/tern_for_vim
+	url = git@github.com:marijnh/tern_for_vim.git
