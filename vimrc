@@ -62,6 +62,9 @@ let g:pymode_indent = 1
 let g:pymode_syntax = 1
 let g:SuperTabClosePreviewOnPopupClose = 1
 
+" pydiction
+let g:pydiction_location = './.vim/bundle/pydiction/complete-dict'
+
 " jshint2
 let jshint2_save = 1
 
