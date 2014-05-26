@@ -58,3 +58,6 @@
 [submodule "bundle/vim-json"]
 	path = bundle/vim-json
 	url = git@github.com:elzr/vim-json.git
+[submodule "bundle/vim-jsbeautify"]
+	path = bundle/vim-jsbeautify
+	url = git@github.com:maksimr/vim-jsbeautify.git

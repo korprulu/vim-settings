@@ -33,6 +33,7 @@ map <leader>td <Plug>TaskList
 map <leader>g :GundoToggle<CR>
 map <leader>n :NERDTreeToggle<CR>
 nmap <leader>a <Esc>:Ack!
+map <c-f> :call JsBeautify()<cr>
 
 " used after vimgrep
 nmap <ESC>n :cnext<CR>
