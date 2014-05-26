@@ -20,7 +20,7 @@ set autowrite
 set cursorline
 set modeline
 set modelines=2
-set guifont=Inconsolata\ 12
+set guifont=Ubuntu\ Mono\ 12
 " autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:SuperTabDefaultCompletionType = "context"
 set completeopt=menuone,longest,preview
