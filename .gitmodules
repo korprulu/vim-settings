@@ -31,9 +31,6 @@
 [submodule "bundle/editorconfig"]
 	path = bundle/editorconfig
 	url = git@github.com:editorconfig/editorconfig-vim.git
-[submodule "bundle/autoformat"]
-	path = bundle/autoformat
-	url = git@github.com:Chiel92/vim-autoformat.git
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = git@github.com:tpope/vim-markdown.git
