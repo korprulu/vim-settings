@@ -23,3 +23,7 @@ root = true
   indent_size = 4
   max_char = 78
   brace_style = expand
+
+[**.coffee]
+  indent_style = space
+  indent_size = 2
