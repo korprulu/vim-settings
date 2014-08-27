@@ -90,6 +90,5 @@ endif
 
 " vim-go
 " let g:go_disable_autoinstall = 1
-let g:go_fmt_command = "gofmt"
 
 nnoremap <silent><F7> :TagbarToggle<CR>
