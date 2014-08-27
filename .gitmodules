@@ -25,9 +25,6 @@
 [submodule "bundle/html5"]
 	path = bundle/html5
 	url = git://github.com/othree/html5.vim.git
-[submodule "bundle/pydiction"]
-	path = bundle/pydiction
-	url = git://github.com/rkulla/pydiction.git
 [submodule "bundle/editorconfig"]
 	path = bundle/editorconfig
 	url = git@github.com:editorconfig/editorconfig-vim.git

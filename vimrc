@@ -39,7 +39,7 @@ set wildmenu        " wild char completion menu
 set wildignore=*.o,*.class,*.pyc
 
 if has("gui_running")
-    set guifont=Ubuntu\ Mono\ 12
+    " set guifont=Ubuntu\ Mono\ 12
     colorscheme desert
 endif
 
@@ -65,20 +65,11 @@ imap <C-Left> <ESC>:tabprevious<CR>
 map <C-Right> :tabnext<CR>
 imap <C-Right> <ESC>:tabnext<CR>
 
-" pydiction
-let g:pydiction_location = './.vim/bundle/pydiction/complete-dict'
-
 " jshint2
 let jshint2_save = 1
 
-autocmd filetype html,markdown setlocal omnifunc=htmlcomplete#Completetags
-autocmd filetype javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd filetype python setlocal omnifunc=pythoncomplete#Complete
-autocmd filetype xml setlocal omnifunc=xmlcomplete#completetags
-autocmd filetype css set omnifunc=csscomplete#CompleteCSS
-autocmd filetype c set omnifunc=ccomplete#Complete
-autocmd filetype java set omnifunc=javacomplete#Complete
-autocmd filetype php set omnifunc=phpcomplete#CompletePHP
+" pymode
+let g:pymode = 1
 
 " use syntax complete if nothing else available
 if has("autocmd") && exists("+omnifunc")
