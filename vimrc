@@ -1,11 +1,22 @@
 " Pathogen load
 execute pathogen#infect()
-execute pathogen#helptags()
+" execute pathogen#helptags()
 
 filetype on
 filetype plugin on
 filetype indent on
-syntax on
+syntax enable
+set background=dark
+
+" powerline font
+let g:airline_powerline_fonts = 1
+set guifont=Meslo\ LG\ S\ for\ Powerline:h12
+
+if has("gui_running")
+    colorscheme solarized
+else
+    colorscheme desert
+endif
 
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
@@ -37,11 +48,6 @@ set wildmenu        " wild char completion menu
 
 " ignore these files while expanding wild chars
 set wildignore=*.o,*.class,*.pyc
-
-if has("gui_running")
-    " set guifont=Ubuntu\ Mono\ 12
-    colorscheme desert
-endif
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
