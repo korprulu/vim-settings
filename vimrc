@@ -8,8 +8,9 @@ filetype indent on
 syntax enable
 set background=dark
 
-" powerline font
+" airline font
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 set guifont=Meslo\ LG\ S\ for\ Powerline:h12
 
 if has("gui_running")
