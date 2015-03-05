@@ -10,12 +10,13 @@ set background=dark
 
 " airline font
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
 set guifont=Meslo\ LG\ S\ for\ Powerline:h12
 
 if has("gui_running")
     colorscheme solarized
 else
+    " enable airline tabline if opened in terminal
+    let g:airline#extensions#tabline#enabled = 1
     colorscheme desert
 endif
 
@@ -87,6 +88,6 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 " vim-go
-" let g:go_disable_autoinstall = 1
+let g:go_fmt_command = "goimports"
 
 nnoremap <silent><F7> :TagbarToggle<CR>
