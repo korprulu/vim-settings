@@ -10,7 +10,12 @@ set background=dark
 
 " airline font
 let g:airline_powerline_fonts = 1
-set guifont=Meslo\ LG\ S\ for\ Powerline:h12
+
+if has("gui_macvim")
+    set guifont=Meslo\ LG\ S\ for\ Powerline:h12
+else
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+endif
 
 if has("gui_running")
     colorscheme solarized
