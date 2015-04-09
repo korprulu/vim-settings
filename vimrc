@@ -1,12 +1,7 @@
 " Pathogen load
 execute pathogen#infect()
-" execute pathogen#helptags()
-
-filetype on
-filetype plugin on
-filetype indent on
-syntax enable
-set background=dark
+syntax on
+filetype plugin indent on
 
 " airline font
 let g:airline_powerline_fonts = 1
@@ -67,16 +62,6 @@ map <leader>g :GundoToggle<CR>
 map <leader>n :NERDTreeToggle<CR>
 nmap <leader>a <Esc>:Ack!
 map <c-f> :call JsBeautify()<cr>
-
-" used after vimgrep
-nmap <ESC>n :cnext<CR>
-nmap <ESC>p :cprevious<CR>
-
-" switch tab
-map <C-Left> :tabprevious<CR>
-imap <C-Left> <ESC>:tabprevious<CR>
-map <C-Right> :tabnext<CR>
-imap <C-Right> <ESC>:tabnext<CR>
 
 " jshint2
 let jshint2_save = 1
