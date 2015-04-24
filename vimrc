@@ -5,6 +5,7 @@ filetype plugin indent on
 
 " airline font
 let g:airline_powerline_fonts = 1
+set background=dark
 
 if has("gui_macvim")
     set guifont=Meslo\ LG\ S\ for\ Powerline:h12
@@ -81,3 +82,6 @@ endif
 let g:go_fmt_command = "goimports"
 
 nnoremap <silent><F7> :TagbarToggle<CR>
+
+" PIV
+let g:DisableAutoPHPFolding = 1

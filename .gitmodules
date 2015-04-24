@@ -76,3 +76,12 @@
 [submodule "bundle/html5.vim"]
 	path = bundle/html5.vim
 	url = git@github.com:othree/html5.vim.git
+[submodule "bundle/PIV"]
+	path = bundle/PIV
+	url = git@github.com:spf13/PIV.git
+[submodule "bundle/vim-php-namespace"]
+	path = bundle/vim-php-namespace
+	url = git@github.com:arnaud-lb/vim-php-namespace.git
+[submodule "bundle/phpcomplete.vim"]
+	path = bundle/phpcomplete.vim
+	url = git://github.com/shawncplus/phpcomplete.vim.git
