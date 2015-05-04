@@ -23,6 +23,10 @@ endif
 
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
+" phpcomplete-extended
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+let g:phpcomplete_index_composer_command = "composer"
+
 " ========
 " encoding
 " ========
@@ -53,7 +57,7 @@ set wildmenu        " wild char completion menu
 set wildignore=*.o,*.class,*.pyc
 
 " supertab
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 set sessionoptions-=options
 
@@ -83,5 +87,20 @@ let g:go_fmt_command = "goimports"
 
 nnoremap <silent><F7> :TagbarToggle<CR>
 
-" PIV
-let g:DisableAutoPHPFolding = 1
+" vim-php-namespace
+" Import classes (add use statements)
+inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
+noremap <Leader>u :call PhpInsertUse()<CR>
+" Make class names fully qualified
+inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
+noremap <Leader>e :call PhpExpandClass()<CR>
+
+" syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
