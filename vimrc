@@ -23,9 +23,6 @@ endif
 
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
-" phpcomplete-extended
-autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
-let g:phpcomplete_index_composer_command = "composer"
 
 " ========
 " encoding
@@ -56,14 +53,10 @@ set wildmenu        " wild char completion menu
 " ignore these files while expanding wild chars
 set wildignore=*.o,*.class,*.pyc
 
-" supertab
-let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
-
-set sessionoptions-=options
+" set sessionoptions-=options
 
 " map key
 map <leader>td <Plug>TaskList
-map <leader>g :GundoToggle<CR>
 map <leader>n :NERDTreeToggle<CR>
 nmap <leader>a <Esc>:Ack!
 map <c-f> :call JsBeautify()<cr>
@@ -75,16 +68,17 @@ let jshint2_save = 1
 let g:pymode = 1
 
 " use syntax complete if nothing else available
-if has("autocmd") && exists("+omnifunc")
-    autocmd filetype *
-        \ if &omnifunc == "" |
-        \ setlocal omnifunc=syntaxcomplete#Complete |
-        \ endif
-endif
+" if has("autocmd") && exists("+omnifunc")
+"     autocmd filetype *
+"         \ if &omnifunc == "" |
+"         \ setlocal omnifunc=syntaxcomplete#Complete |
+"         \ endif
+" endif
 
 " vim-go
 let g:go_fmt_command = "goimports"
 
+" tagbar
 nnoremap <silent><F7> :TagbarToggle<CR>
 
 " vim-php-namespace
@@ -104,3 +98,9 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" phpcomplete-extended
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+let g:phpcomplete_index_composer_command = 'composer'
+" supertab
+let g:SuperTabDefaultCompletionType = "context"
