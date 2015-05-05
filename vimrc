@@ -21,7 +21,7 @@ else
     colorscheme desert
 endif
 
-autocmd! bufwritepost .vimrc source ~/.vimrc
+" autocmd! bufwritepost .vimrc source ~/.vimrc
 
 
 " ========
@@ -56,9 +56,7 @@ set wildignore=*.o,*.class,*.pyc
 " set sessionoptions-=options
 
 " map key
-map <leader>td <Plug>TaskList
 map <leader>n :NERDTreeToggle<CR>
-nmap <leader>a <Esc>:Ack!
 map <c-f> :call JsBeautify()<cr>
 
 " jshint2
@@ -66,14 +64,6 @@ let jshint2_save = 1
 
 " pymode
 let g:pymode = 1
-
-" use syntax complete if nothing else available
-" if has("autocmd") && exists("+omnifunc")
-"     autocmd filetype *
-"         \ if &omnifunc == "" |
-"         \ setlocal omnifunc=syntaxcomplete#Complete |
-"         \ endif
-" endif
 
 " vim-go
 let g:go_fmt_command = "goimports"

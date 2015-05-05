@@ -1,9 +1,3 @@
-[submodule "bundle/ack"]
-	path = bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
-[submodule "bundle/tasklist"]
-	path = bundle/tasklist
-	url = https://github.com/vim-scripts/TaskList.vim.git
 [submodule "bundle/vim-coffee-script"]
 	path = bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
@@ -37,9 +31,6 @@
 [submodule "bundle/vim-jsbeautify"]
 	path = bundle/vim-jsbeautify
 	url = git@github.com:maksimr/vim-jsbeautify.git
-[submodule "bundle/vim-autoclose"]
-	path = bundle/vim-autoclose
-	url = git@github.com:Townk/vim-autoclose.git
 [submodule "bundle/vim-go"]
 	path = bundle/vim-go
 	url = git@github.com:fatih/vim-go.git
@@ -49,9 +40,6 @@
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = git@github.com:bling/vim-airline.git
-[submodule "bundle/vim-fugitive"]
-	path = bundle/vim-fugitive
-	url = git@github.com:tpope/vim-fugitive.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
@@ -73,9 +61,6 @@
 [submodule "bundle/vim-php-namespace"]
 	path = bundle/vim-php-namespace
 	url = git@github.com:arnaud-lb/vim-php-namespace.git
-[submodule "bundle/vim-surround"]
-	path = bundle/vim-surround
-	url = git@github.com:tpope/vim-surround.git
 [submodule "bundle/phpcomplete-extended"]
 	path = bundle/phpcomplete-extended
 	url = git@github.com:m2mdas/phpcomplete-extended.git
