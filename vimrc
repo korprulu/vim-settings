@@ -1,7 +1,11 @@
 " Pathogen load
 execute pathogen#infect()
+
+filetype off  " necessary to make ftdetect work on Linux
 syntax on
-filetype plugin indent on
+filetype on
+filetype plugin on
+filetype indent on
 
 " airline font
 let g:airline_powerline_fonts = 1
@@ -21,8 +25,9 @@ else
     colorscheme desert
 endif
 
-" autocmd! bufwritepost .vimrc source ~/.vimrc
-
+" Vim sessions default to capturing all global options, which includes the 'runtimepath' that pathogen.vim manipulates.
+" This can cause other problems too, so I recommend turning that behavior off
+set sessionoptions-=options
 
 " ========
 " encoding
@@ -35,9 +40,11 @@ set fileencodings=utf-8,big5,default
 " General
 " =======
 
+set nocompatible " not compatible with the old-fashion vi mode
 set number      " display line number
 set smartindent
 set tabstop=4
+syntax on
 set hlsearch     " search highlighting
 set shiftwidth=4
 set expandtab    " replace <TAB> with spaces
@@ -90,7 +97,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " phpcomplete-extended
-autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
+autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
 let g:phpcomplete_index_composer_command = 'composer'
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
