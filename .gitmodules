@@ -79,3 +79,12 @@
 [submodule "bundle/vim-autotag"]
 	path = bundle/vim-autotag
 	url = git@github.com:craigemery/vim-autotag.git
+[submodule "bundle/phpctags"]
+	path = bundle/phpctags
+	url = git@github.com:vim-php/phpctags.git
+[submodule "bundle/phpcomplete-extended-symfony"]
+	path = bundle/phpcomplete-extended-symfony
+	url = git@github.com:m2mdas/phpcomplete-extended-symfony.git
+[submodule "bundle/phpcomplete.vim"]
+	path = bundle/phpcomplete.vim
+	url = git@github.com:shawncplus/phpcomplete.vim.git

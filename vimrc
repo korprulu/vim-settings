@@ -33,7 +33,7 @@ set sessionoptions-=options
 " encoding
 " ========
 set encoding=utf-8
-set fileencodings=utf-8,big5,default
+set fileencodings=utf-8,default
 
 
 " =======
@@ -44,7 +44,6 @@ set nocompatible " not compatible with the old-fashion vi mode
 set number      " display line number
 set smartindent
 set tabstop=4
-syntax on
 set hlsearch     " search highlighting
 set shiftwidth=4
 set expandtab    " replace <TAB> with spaces
@@ -60,7 +59,7 @@ set wildmenu        " wild char completion menu
 " ignore these files while expanding wild chars
 set wildignore=*.o,*.class,*.pyc
 
-" set sessionoptions-=options
+set sessionoptions-=options
 
 " map key
 map <leader>n :NERDTreeToggle<CR>
@@ -98,6 +97,6 @@ let g:syntastic_check_on_wq = 0
 
 " phpcomplete-extended
 autocmd FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
-let g:phpcomplete_index_composer_command = 'composer'
+let g:phpcomplete_index_composer_command = '/usr/local/bin/composer'
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
