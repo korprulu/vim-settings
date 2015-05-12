@@ -1,11 +1,48 @@
-" Pathogen load
-execute pathogen#infect()
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-filetype off  " necessary to make ftdetect work on Linux
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'othree/html5.vim'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'm2mdas/phpcomplete-extended'
+Plugin 'm2mdas/phpcomplete-extended-laravel'
+Plugin 'm2mdas/phpcomplete-extended-symfony'
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'klen/python-mode'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'bling/vim-airline'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'fatih/vim-go'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'elzr/vim-json'
+Plugin 'tpope/vim-markdown'
+Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'Shougo/vimproc.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 syntax on
-filetype on
-filetype plugin on
-filetype indent on
 
 " airline font
 let g:airline_powerline_fonts = 1
@@ -40,7 +77,6 @@ set fileencodings=utf-8,default
 " General
 " =======
 
-set nocompatible " not compatible with the old-fashion vi mode
 set number      " display line number
 set smartindent
 set tabstop=4
