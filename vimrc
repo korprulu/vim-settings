@@ -124,3 +124,6 @@ let g:syntastic_check_on_wq = 0
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
+
+" syntastic
+let g:syntastic_html_tidy_exec = "tidy5"
