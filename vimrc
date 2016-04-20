@@ -20,7 +20,6 @@ Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'bling/vim-airline'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'airblade/vim-gitgutter'
@@ -31,6 +30,8 @@ Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-markdown'
 Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'arnaud-lb/vim-php-namespace'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
