@@ -28,8 +28,6 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-markdown'
-Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'arnaud-lb/vim-php-namespace'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
@@ -55,12 +53,12 @@ set smartindent
 set tabstop=4
 set hlsearch     " search highlighting
 set shiftwidth=4
-set expandtab    " replace <TAB> with spaces
+" set expandtab    " replace <TAB> with spaces
 set ruler        " show the cursor position all the time
 set autowrite
 set cursorline
-set modeline
-set modelines=2
+" set modeline
+" set modelines=2
 set backspace=2  " enable backspace to delete word (fix when upgrade to 7.4)
 set showmode     " show current mode
 set wildmenu     " wild char completion menu
@@ -72,13 +70,13 @@ set sessionoptions-=options
 
 " map key
 map <leader>n :NERDTreeToggle<CR>
-map <c-f> :call JsBeautify()<cr>
 
 " airline font
 let g:airline_powerline_fonts = 1
 set background=dark
 
-if has("gui_macvim")
+let s:uname = system("uname -s")
+if has("gui_macvim") || s:uname == "Darwin"
     set guifont=Meslo\ LG\ S\ for\ Powerline:h12
 else
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
@@ -97,21 +95,13 @@ endif
 let jshint2_save = 1
 
 " pymode
-let g:pymode = 1
+let g:pymode_folding = 0
 
 " vim-go
 let g:go_fmt_command = "goimports"
 
 " tagbar
 nnoremap <silent><F7> :TagbarToggle<CR>
-
-" vim-php-namespace
-" Import classes (add use statements)
-inoremap <Leader>u <C-O>:call PhpInsertUse()<CR>
-noremap <Leader>u :call PhpInsertUse()<CR>
-" Make class names fully qualified
-inoremap <Leader>e <C-O>:call PhpExpandClass()<CR>
-noremap <Leader>e :call PhpExpandClass()<CR>
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -128,3 +118,10 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " syntastic
 let g:syntastic_html_tidy_exec = "tidy5"
+
+" vim-jsbeautify
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
