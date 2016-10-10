@@ -120,8 +120,8 @@ let g:SuperTabDefaultCompletionType = "context"
 let g:syntastic_html_tidy_exec = "tidy5"
 
 " vim-jsbeautify
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd FileType javascript noremap <buffer> <leader>f  :call JsBeautify()<cr>
+autocmd FileType json noremap <buffer> <leader>f :call JsonBeautify()<cr>
+autocmd FileType jsx noremap <buffer> <leader>f :call JsxBeautify()<cr>
+autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
