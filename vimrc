@@ -11,11 +11,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'othree/html5.vim'
-Plugin 'Shutnik/jshint2.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'klen/python-mode'
-Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
@@ -90,10 +87,6 @@ else
     colorscheme desert
 endif
 
-
-" jshint2
-let jshint2_save = 1
-
 " pymode
 let g:pymode_folding = 0
 
@@ -112,6 +105,12 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint'
+let g:syntastic_html_checker = ['tidy']
+let g:syntastic_html_tidy_exec = 'tidy'
+let g:syntastic_scss_checker = ['scsslint']
+let g:syntastic_scss_scsslint_exec = 'scss-lint'
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
