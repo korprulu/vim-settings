@@ -84,6 +84,7 @@ if has("gui_running")
 else
     " enable airline tabline if opened in terminal
     let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#tabline#tab_nr_type = 1
     colorscheme desert
 endif
 
