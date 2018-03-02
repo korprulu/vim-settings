@@ -125,3 +125,7 @@ autocmd FileType json noremap <buffer> <leader>f :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <leader>f :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
+
+" vimgrep
+map <leader>o :cn<cr>
+map <leader>p :cp<cr>
