@@ -12,11 +12,9 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'klen/python-mode'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
-Plugin 'marijnh/tern_for_vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
@@ -26,7 +24,9 @@ Plugin 'elzr/vim-json'
 Plugin 'tpope/vim-markdown'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'hashivim/vim-terraform'
+Plugin 'scrooloose/vim-slumlord'
+Plugin 'aklt/plantuml-syntax'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -85,14 +85,12 @@ else
     " enable airline tabline if opened in terminal
     let g:airline#extensions#tabline#enabled = 1
 	let g:airline#extensions#tabline#tab_nr_type = 1
-    colorscheme desert
 endif
-
-" pymode
-let g:pymode_folding = 0
 
 " vim-go
 let g:go_fmt_command = "goimports"
+" let g:go_list_type = "quickfix"
+" autocmd FileType go set omnifunc=gocomplete#Complete
 
 " tagbar
 nnoremap <silent><F7> :TagbarToggle<CR>
@@ -112,6 +110,8 @@ let g:syntastic_html_checker = ['tidy']
 let g:syntastic_html_tidy_exec = 'tidy'
 let g:syntastic_scss_checker = ['scsslint']
 let g:syntastic_scss_scsslint_exec = 'scss-lint'
+let g:syntastic_go_checkers = ['golint', 'govet']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
@@ -122,10 +122,20 @@ let g:syntastic_html_tidy_exec = "tidy5"
 " vim-jsbeautify
 autocmd FileType javascript noremap <buffer> <leader>f  :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <leader>f :call JsonBeautify()<cr>
-autocmd FileType jsx noremap <buffer> <leader>f :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
 
 " vimgrep
 map <leader>o :cn<cr>
 map <leader>p :cp<cr>
+
+" ensime
+nnoremap <localleader>t :EnType<CR>
+autocmd BufWritePost *.scala silent :EnTypeCheck
+
+" terraform
+let g:terraform_fmt_on_save = 1
+
+" tab navigation
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
