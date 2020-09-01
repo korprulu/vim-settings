@@ -114,12 +114,11 @@ let g:syntastic_scss_checker = ['scsslint']
 let g:syntastic_scss_scsslint_exec = 'scss-lint'
 let g:syntastic_go_checkers = ['golint', 'govet']
 let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+let g:syntastic_html_tidy_exec = "tidy5"
+let g:syntastic_python_python_exec = "python3"
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
-
-" syntastic
-let g:syntastic_html_tidy_exec = "tidy5"
 
 " vim-jsbeautify
 autocmd FileType javascript noremap <buffer> <leader>f  :call JsBeautify()<cr>
@@ -175,9 +174,4 @@ let g:tagbar_type_go = {
 let g:tagbar_width = 50
 
 " plantuml
-let g:plantuml_executable_script='java -jar /Users/kevinchiu/program/plantuml.1.2020.0.jar'
-let s:makecommand=g:plantuml_executable_script." %"
- autocmd Filetype plantuml let &l:makeprg=s:makecommand
-nnoremap <F5> :w<CR> :silent make<CR>
-inoremap <F5> <Esc>:w<CR>:silent make<CR>
-vnoremap <F5> :<C-U>:w<CR>:silent make<CR
+let g:plantuml_executable_script='/Users/kevinchiu/.plantuml'
