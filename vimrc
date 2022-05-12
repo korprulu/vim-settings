@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
+Plugin 'vim-syntastic/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'airblade/vim-gitgutter'
@@ -27,6 +27,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'hashivim/vim-terraform'
 Plugin 'scrooloose/vim-slumlord'
 Plugin 'aklt/plantuml-syntax'
+Plugin 'justmao945/vim-clang'
+Plugin 'vim-php/tagbar-phpctags.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -91,11 +93,19 @@ endif
 let g:go_fmt_command = "goimports"
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 " let g:go_list_type = "quickfix"
 " autocmd FileType go set omnifunc=gocomplete#Complete
 
 " tagbar
 nnoremap <silent><F7> :TagbarToggle<CR>
+let g:tagbar_width = 50
+" tagbar for php
+let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
+let g:tagbar_phpctags_memory_limit = '512M'
+let g:loaded_syntastic_php_php_checker = 0
 
 " syntastic
 set statusline+=%#warningmsg#
@@ -170,8 +180,5 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
 \ }
 
-" tagbar
-let g:tagbar_width = 50
-
 " plantuml
-let g:plantuml_executable_script='/Users/kevinchiu/.plantuml'
+let g:plantuml_executable_script='/Users/kevinchiu/.plantuml-exec-script'
