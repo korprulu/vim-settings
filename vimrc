@@ -72,7 +72,8 @@ map <leader>n :NERDTreeToggle<CR>
 
 " airline font
 let g:airline_powerline_fonts = 1
-set background=dark
+let g:airline_theme = "simple"
+" set background=dark
 
 let s:uname = system("uname -s")
 if has("gui_macvim") || s:uname == "Darwin"
@@ -90,7 +91,8 @@ else
 endif
 
 " vim-go
-let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "gopls"
+let g:go_gopls_gofumpt = 1
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
