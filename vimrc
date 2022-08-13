@@ -21,14 +21,12 @@ Plugin 'fatih/vim-go'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'elzr/vim-json'
-Plugin 'tpope/vim-markdown'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'hashivim/vim-terraform'
-Plugin 'scrooloose/vim-slumlord'
+" Plugin 'hashivim/vim-terraform'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'justmao945/vim-clang'
-Plugin 'vim-php/tagbar-phpctags.vim'
+" Plugin 'vim-php/tagbar-phpctags.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -181,4 +179,4 @@ let g:tagbar_type_go = {
 \ }
 
 " plantuml
-let g:plantuml_executable_script='/Users/kevinchiu/.plantuml-exec-script'
+let g:plantuml_executable_script=$HOME.'/.plantuml-exec-script'
