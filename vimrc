@@ -26,6 +26,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'justmao945/vim-clang'
 " Plugin 'vim-php/tagbar-phpctags.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
