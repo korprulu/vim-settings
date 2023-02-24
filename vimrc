@@ -121,12 +121,14 @@ map <leader>p :cp<cr>
 nnoremap <localleader>t :EnType<CR>
 autocmd BufWritePost *.scala silent :EnTypeCheck
 
-" terraform
-let g:terraform_fmt_on_save = 1
-
 " tab navigation
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
 " plantuml
-let g:plantuml_executable_script=$HOME.'/.plantuml-exec-script'
+if !empty(expand(glob('.plantuml-exec-script')))
+	let g:plantuml_executable_script=$HOME.'/.plantuml-exec-script'
+endif
+
+" terraform
+" let g:terraform_fmt_on_save = 1
