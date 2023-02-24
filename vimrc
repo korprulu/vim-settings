@@ -13,7 +13,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'airblade/vim-gitgutter'
@@ -103,27 +102,6 @@ let g:tagbar_width = 50
 " tagbar for php
 let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
 let g:tagbar_phpctags_memory_limit = '512M'
-let g:loaded_syntastic_php_php_checker = 0
-
-" syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint'
-let g:syntastic_html_checker = ['tidy']
-let g:syntastic_html_tidy_exec = 'tidy'
-let g:syntastic_scss_checker = ['scsslint']
-let g:syntastic_scss_scsslint_exec = 'scss-lint'
-let g:syntastic_go_checkers = ['golint', 'govet']
-let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
-let g:syntastic_html_tidy_exec = "tidy5"
-let g:syntastic_python_python_exec = "python3"
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
