@@ -13,7 +13,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ervandew/supertab'
-Plugin 'majutsushi/tagbar'
+Plugin 'preservim/tagbar'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
@@ -88,12 +88,14 @@ else
 endif
 
 " vim-go
-let g:go_fmt_command = "goimports"
+" gofumpt https://github.com/mvdan/gofumpt
+let g:go_fmt_command = "gofumpt"
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+autocmd BufWritePre *.go :GoLint
 " let g:go_list_type = "quickfix"
 " autocmd FileType go set omnifunc=gocomplete#Complete
 
@@ -101,8 +103,11 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 nnoremap <silent><F7> :TagbarToggle<CR>
 let g:tagbar_width = 50
 " tagbar for php
-let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
-let g:tagbar_phpctags_memory_limit = '512M'
+" let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
+" let g:tagbar_phpctags_memory_limit = '512M'
+"
+" tagbar for golang
+" install https://github.com/jstemmer/gotags
 
 " supertab
 let g:SuperTabDefaultCompletionType = "context"
