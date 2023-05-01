@@ -1,6 +1,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+" Install Vundle
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -50,7 +53,7 @@ set smartindent
 set tabstop=4
 set hlsearch     " search highlighting
 set shiftwidth=4
-" set expandtab    " replace <TAB> with spaces
+set expandtab    " replace <TAB> with spaces
 set ruler        " show the cursor position all the time
 set autowrite
 set cursorline
