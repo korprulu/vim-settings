@@ -15,12 +15,12 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'ervandew/supertab'
+" Plugin 'ervandew/supertab'
 Plugin 'preservim/tagbar'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
-Plugin 'jelera/vim-javascript-syntax'
+" Plugin 'jelera/vim-javascript-syntax'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'elzr/vim-json'
 Plugin 'vim-airline/vim-airline'
@@ -30,6 +30,7 @@ Plugin 'aklt/plantuml-syntax'
 Plugin 'justmao945/vim-clang'
 " Plugin 'vim-php/tagbar-phpctags.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'neoclide/coc.nvim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -145,3 +146,16 @@ endif
 
 " terraform
 " let g:terraform_fmt_on_save = 1
+
+" Coc
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+" use <tab> to trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
