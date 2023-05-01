@@ -68,7 +68,11 @@ set wildignore=*.o,*.class,*.pyc
 
 set sessionoptions-=options
 
-" map key
+" key mapping
+inoremap { {}<Left>
+inoremap ( ()<Left>
+
+" nerdtree
 map <leader>n :NERDTreeToggle<CR>
 
 " airline font
