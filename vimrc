@@ -32,6 +32,7 @@ Plugin 'justmao945/vim-clang'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'neoclide/coc.nvim'
 Plugin 'github/copilot.vim'
+Plugin 'leafgarland/typescript-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
