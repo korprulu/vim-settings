@@ -14,7 +14,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'scrooloose/nerdtree'
 " Plugin 'ervandew/supertab'
 Plugin 'preservim/tagbar'
 Plugin 'altercation/vim-colors-solarized'
@@ -33,6 +32,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'neoclide/coc.nvim'
 Plugin 'github/copilot.vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'madox2/vim-ai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -72,11 +72,8 @@ set wildignore=*.o,*.class,*.pyc
 set sessionoptions-=options
 
 " key mapping
-inoremap { {}<Left>
-inoremap ( ()<Left>
-
-" nerdtree
-map <leader>n :NERDTreeToggle<CR>
+" inoremap { {}<Left>
+" inoremap ( ()<Left>
 
 " airline font
 let g:airline_powerline_fonts = 1
@@ -151,6 +148,7 @@ endif
 
 " Coc
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+command! -nargs=0 CocRename :normal! <Plug>(coc-rename)
 " use <tab> to trigger completion and navigate to the next complete item
 function! CheckBackspace() abort
   let col = col('.') - 1
@@ -161,3 +159,25 @@ inoremap <silent><expr> <Tab>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+
+autocmd BufWritePre *.ts :call CocAction('runCommand', 'editor.action.organizeImport')
+
+" Copilot
+imap <silent><script><expr> <C-A> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
+
+" typescript-vim
+let g:typescript_indent_disable = 1
+
+" ctrlp
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+  \ }
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
+  \ 'AcceptSelection("t")': ['<cr>', '<c-t>'],
+  \ }
+let g:ctrlp_regexp = 1
