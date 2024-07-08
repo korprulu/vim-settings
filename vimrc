@@ -72,6 +72,7 @@ set wildignore=*.o,*.class,*.pyc
 set sessionoptions-=options
 
 " key mapping
+nmap <leader>n :Explore<CR>
 " inoremap { {}<Left>
 " inoremap ( ()<Left>
 
@@ -148,7 +149,13 @@ endif
 
 " Coc
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+" scroll down float window
+inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Right>"
+" scroll up float window
+inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Right>"
+
 command! -nargs=0 CocRename :normal! <Plug>(coc-rename)
+command! -nargs=0 TsDef :call CocAction('runCommand', 'tsserver.goToSourceDefinition')
 " use <tab> to trigger completion and navigate to the next complete item
 function! CheckBackspace() abort
   let col = col('.') - 1
