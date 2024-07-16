@@ -32,7 +32,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'neoclide/coc.nvim'
 Plugin 'github/copilot.vim'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'madox2/vim-ai'
+" Plugin 'madox2/vim-ai'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
