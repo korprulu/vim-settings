@@ -16,7 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 " Plugin 'ervandew/supertab'
 Plugin 'preservim/tagbar'
-Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'fatih/vim-go'
 " Plugin 'jelera/vim-javascript-syntax'
@@ -80,15 +80,12 @@ nmap <leader>n :Explore<CR>
 let g:airline_powerline_fonts = 1
 set background=dark
 
-let s:uname = system("uname -s")
-if has("gui_macvim") || s:uname == "Darwin"
-    set guifont=Meslo\ LG\ S\ for\ Powerline:h12
-else
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+if has('nvim')
+    colorscheme vim
 endif
 
 if has("gui_running")
-    colorscheme solarized
+    " colorscheme solarized
 else
     " enable airline tabline if opened in terminal
     let g:airline#extensions#tabline#enabled = 1
@@ -105,7 +102,7 @@ au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 autocmd BufWritePre *.go :GoLint
-" let g:go_list_type = "quickfix"
+" let g:go_list_type = \"quickfix\"
 " autocmd FileType go set omnifunc=gocomplete#Complete
 
 " tagbar
