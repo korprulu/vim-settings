@@ -98,6 +98,7 @@ let g:go_fmt_command = "gofumpt"
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_rename_command='gopls'
+let g:go_auto_sameids = 1
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
