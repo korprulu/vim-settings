@@ -31,7 +31,7 @@ Plugin 'justmao945/vim-clang'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'neoclide/coc.nvim'
 Plugin 'github/copilot.vim'
-Plugin 'leafgarland/typescript-vim'
+" Plugin 'leafgarland/typescript-vim'
 " Plugin 'madox2/vim-ai'
 
 " All of your Plugins must be added before the following line
