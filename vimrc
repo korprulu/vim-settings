@@ -76,6 +76,10 @@ nmap <leader>n :Explore<CR>
 let g:airline_powerline_fonts = 1
 set background=dark
 
+if has("nvim")
+    colorscheme vim
+endif
+
 if has("gui_running")
     " colorscheme solarized
 else
