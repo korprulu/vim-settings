@@ -1,41 +1,37 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" set nocompatible              " be iMproved, required
+" filetype off                  " required
 
-" Install Vundle
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" Install vim-plug
+" https://github.com/junegunn/vim-plug
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'preservim/tagbar'
+Plug 'airblade/vim-gitgutter'
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+Plug 'maksimr/vim-jsbeautify'
+Plug 'elzr/vim-json'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'justmao945/vim-clang'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'github/copilot.vim'
 
-Plugin 'editorconfig/editorconfig-vim'
+" removed plugins
+" Plugin 'aklt/plantuml-syntax'
 " Plugin 'ervandew/supertab'
-Plugin 'preservim/tagbar'
 " Plugin 'altercation/vim-colors-solarized'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'fatih/vim-go'
 " Plugin 'jelera/vim-javascript-syntax'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'elzr/vim-json'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 " Plugin 'hashivim/vim-terraform'
-Plugin 'aklt/plantuml-syntax'
-Plugin 'justmao945/vim-clang'
 " Plugin 'vim-php/tagbar-phpctags.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'neoclide/coc.nvim'
-Plugin 'github/copilot.vim'
 " Plugin 'leafgarland/typescript-vim'
 " Plugin 'madox2/vim-ai'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
+
 filetype plugin indent on    " required
 
 syntax on
@@ -80,10 +76,6 @@ nmap <leader>n :Explore<CR>
 let g:airline_powerline_fonts = 1
 set background=dark
 
-if has('nvim')
-    colorscheme vim
-endif
-
 if has("gui_running")
     " colorscheme solarized
 else
@@ -94,10 +86,10 @@ endif
 
 " vim-go
 " gofumpt https://github.com/mvdan/gofumpt
-" set in coc config
-" let g:go_fmt_command = 'gofumpt'
-" let g:go_def_mode='gopls'
-" let g:go_rename_command='gopls'
+let g:go_fmt_command = "gofumpt"
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+let g:go_rename_command='gopls'
 " let g:go_auto_sameids = 1
 au FileType go nmap <Leader>ds <Plug>(go-def-split)
 au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
