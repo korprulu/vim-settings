@@ -19,6 +19,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'github/copilot.vim'
 
+" CopilotChat.nvim
+Plug 'zbirenbaum/copilot.lua'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
+
 " removed plugins
 " Plugin 'aklt/plantuml-syntax'
 " Plugin 'ervandew/supertab'
@@ -182,3 +187,11 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<c-t>'],
   \ }
 let g:ctrlp_regexp = 1
+
+" CopilotChat.nvim
+lua << EOF
+require("CopilotChat").setup {
+  debug = true, -- Enable debugging
+  -- See Configuration section for rest
+}
+EOF
