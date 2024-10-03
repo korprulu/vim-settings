@@ -188,6 +188,11 @@ let g:ctrlp_prompt_mappings = {
   \ }
 let g:ctrlp_regexp = 1
 
+" local settings
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
+
 " CopilotChat.nvim
 lua << EOF
 require("CopilotChat").setup {
