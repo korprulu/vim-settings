@@ -12,8 +12,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'maksimr/vim-jsbeautify'
 Plug 'elzr/vim-json'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'justmao945/vim-clang'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -33,6 +31,14 @@ Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 " Plugin 'vim-php/tagbar-phpctags.vim'
 " Plugin 'leafgarland/typescript-vim'
 " Plugin 'madox2/vim-ai'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" always the last
+" - brew install font-hack-nerd-font
+" - change terminal font to Hack Nerd Font
+Plug 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -60,37 +66,33 @@ set shiftwidth=4
 set expandtab    " replace <TAB> with spaces
 set ruler        " show the cursor position all the time
 set autowrite
-set cursorline
 " set modeline
 " set modelines=2
 set backspace=2  " enable backspace to delete word (fix when upgrade to 7.4)
 set showmode     " show current mode
 set wildmenu     " wild char completion menu
+" set background=dark
 
 " ignore these files while expanding wild chars
 set wildignore=*.o,*.class,*.pyc
 
 set sessionoptions-=options
 
-" key mapping
-nmap <leader>n :Explore<CR>
-" inoremap { {}<Left>
-" inoremap ( ()<Left>
+" netrw
+nmap <leader>n :Lexplore<CR>
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
 
 " airline font
+let g:airline_theme = 'bubblegum'
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
 let g:airline_powerline_fonts = 1
-set background=dark
+let g:airline#extensions#tabline#enabled = 1
 
 if has("nvim")
     colorscheme vim
-endif
-
-if has("gui_running")
-    " colorscheme solarized
-else
-    " enable airline tabline if opened in terminal
-    let g:airline#extensions#tabline#enabled = 1
-	let g:airline#extensions#tabline#tab_nr_type = 1
 endif
 
 " vim-go
@@ -187,6 +189,7 @@ let g:ctrlp_prompt_mappings = {
   \ 'AcceptSelection("t")': ['<cr>', '<c-t>'],
   \ }
 let g:ctrlp_regexp = 1
+let g:webdevicons_enable_ctrlp = 1
 
 " local settings
 if filereadable(expand('~/.vimrc.local'))
@@ -198,5 +201,8 @@ lua << EOF
 require("CopilotChat").setup {
   debug = true, -- Enable debugging
   -- See Configuration section for rest
+  window = {
+    width = 0.4
+  },
 }
 EOF
