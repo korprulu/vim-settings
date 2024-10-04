@@ -82,7 +82,7 @@ set sessionoptions-=options
 nmap <leader>n :Lexplore<CR>
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
-let g:netrw_winsize = 25
+let g:netrw_winsize = 20
 
 " airline font
 let g:airline_theme = 'bubblegum'
@@ -90,6 +90,7 @@ let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1
 
 if has("nvim")
     colorscheme vim
@@ -137,8 +138,8 @@ nnoremap <localleader>t :EnType<CR>
 autocmd BufWritePost *.scala silent :EnTypeCheck
 
 " tab navigation
-nnoremap <C-Left> :tabprevious<CR>
-nnoremap <C-Right> :tabnext<CR>
+nnoremap <C-Left> gT
+nnoremap <C-Right> gt
 
 " plantuml
 if !empty(expand(glob('.plantuml-exec-script')))
