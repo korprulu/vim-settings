@@ -6,6 +6,7 @@
 
 call plug#begin()
 
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/tagbar'
 Plug 'airblade/vim-gitgutter'
@@ -15,31 +16,20 @@ Plug 'elzr/vim-json'
 Plug 'justmao945/vim-clang'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'github/copilot.vim'
 Plug 'akinsho/toggleterm.nvim', { 'tag': 'v2.*'}
 
+Plug 'github/copilot.vim'
 " CopilotChat.nvim
-Plug 'zbirenbaum/copilot.lua'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
+Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'main' }
 
-" removed plugins
-" Plugin 'aklt/plantuml-syntax'
-" Plugin 'ervandew/supertab'
-" Plugin 'altercation/vim-colors-solarized'
-" Plugin 'jelera/vim-javascript-syntax'
-" Plugin 'hashivim/vim-terraform'
-" Plugin 'vim-php/tagbar-phpctags.vim'
-" Plugin 'leafgarland/typescript-vim'
-" Plugin 'madox2/vim-ai'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 
 " always the last
 " - brew install font-hack-nerd-font
 " - change terminal font to Hack Nerd Font
-Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-tree/nvim-web-devicons'
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -67,37 +57,21 @@ set shiftwidth=4
 set expandtab    " replace <TAB> with spaces
 set ruler        " show the cursor position all the time
 set autowrite
-" set modeline
-" set modelines=2
 set backspace=2  " enable backspace to delete word (fix when upgrade to 7.4)
 set showmode     " show current mode
 set wildmenu     " wild char completion menu
 set splitbelow   " split window below
 set splitright   " split window right
-" set background=dark
-
-" ignore these files while expanding wild chars
-set wildignore=*.o,*.class,*.pyc
-
+set background=dark
+set wildignore=*.o,*.class,*.pyc " ignore these files while expanding wild chars
 set sessionoptions-=options
+colorscheme catppuccin
 
 " netrw
 nmap <leader>n :Lexplore<CR>
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_winsize = 20
-
-" airline font
-let g:airline_theme = 'bubblegum'
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#tab_nr_type = 1
-
-if has("nvim")
-    colorscheme vim
-endif
 
 " vim-go
 " gofumpt https://github.com/mvdan/gofumpt
@@ -123,22 +97,11 @@ let g:tagbar_width = 50
 " tagbar for golang
 " install https://github.com/jstemmer/gotags
 
-" supertab
-let g:SuperTabDefaultCompletionType = "context"
-
 " vim-jsbeautify
 autocmd FileType javascript noremap <buffer> <leader>f  :call JsBeautify()<cr>
 autocmd FileType json noremap <buffer> <leader>f :call JsonBeautify()<cr>
 autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
-
-" vimgrep
-map <leader>o :cn<cr>
-map <leader>p :cp<cr>
-
-" ensime
-nnoremap <localleader>t :EnType<CR>
-autocmd BufWritePost *.scala silent :EnTypeCheck
 
 " tab navigation
 nnoremap <C-Left> gT
@@ -200,6 +163,12 @@ if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
 endif
 
+" gitgutter
+let g:gitgutter_preview_win_floating = 0
+nmap ghp <Plug>(GitGutterPreviewHunk)
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
+
 lua << EOF
 -- CopilotChat.nvim
 require("CopilotChat").setup {
@@ -213,10 +182,11 @@ require("CopilotChat").setup {
 -- toggleterm
 require("toggleterm").setup{
   open_mapping = [[<c-\>]],
+  direction = 'float',
 }
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}
-  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+  -- vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
   vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
   vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
   vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
@@ -226,4 +196,10 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
+
+-- lualine
+require('lualine').setup{}
+
+-- bufferline
+require("bufferline").setup{}
 EOF
