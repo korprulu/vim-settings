@@ -19,9 +19,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'akinsho/toggleterm.nvim', { 'tag': 'v2.*'}
 
 Plug 'github/copilot.vim'
-" CopilotChat.nvim
+
+" Avante
+Plug 'stevearc/dressing.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'main' }
+Plug 'MunifTanjim/nui.nvim'
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
 
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
@@ -170,15 +173,6 @@ nmap ghs <Plug>(GitGutterStageHunk)
 nmap ghu <Plug>(GitGutterUndoHunk)
 
 lua << EOF
--- CopilotChat.nvim
-require("CopilotChat").setup {
-  debug = true, -- Enable debugging
-  -- See Configuration section for rest
-  window = {
-    width = 0.4
-  },
-}
-
 -- toggleterm
 require("toggleterm").setup{
   open_mapping = [[<c-\>]],
@@ -202,4 +196,10 @@ require('lualine').setup{}
 
 -- bufferline
 require("bufferline").setup{}
+
+-- avante
+require('avante_lib').load()
+require('avante').setup {
+  provider = 'copilot',
+}
 EOF
