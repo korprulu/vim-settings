@@ -12,20 +12,17 @@ Plug 'preservim/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'maksimr/vim-jsbeautify'
-Plug 'justmao945/vim-clang'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'akinsho/toggleterm.nvim', { 'tag': 'v2.*'}
-Plug 'github/copilot.vim'
-
-" Avante
-Plug 'stevearc/dressing.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'MunifTanjim/nui.nvim'
-Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
-
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+
+" Copilot
+Plug 'github/copilot.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'CopilotC-Nvim/CopilotChat.nvim'
 
 " always the last
 " - brew install font-hack-nerd-font
@@ -206,10 +203,31 @@ require("bufferline").setup {
     },
 }
 
--- avante
-require('avante_lib').load()
-require('avante').setup {
-  provider = 'copilot',
+-- Copilot
+require("CopilotChat").setup {
+    model = "claude-3.5-sonnet",
+    window = {
+        width = 0.4,
+    },
+    contexts = {
+        file = {
+            input = function(callback)
+                local telescope = require("telescope.builtin")
+                local actions = require("telescope.actions")
+                local action_state = require("telescope.actions.state")
+                telescope.find_files({
+                    attach_mappings = function(prompt_bufnr)
+                        actions.select_default:replace(function()
+                        actions.close(prompt_bufnr)
+                        local selection = action_state.get_selected_entry()
+                        callback(selection[1])
+                        end)
+                        return true
+                    end,
+                })
+            end,
+        },
+    },
 }
 
 -- catppuccin
