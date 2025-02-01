@@ -12,12 +12,10 @@ Plug 'preservim/tagbar'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'maksimr/vim-jsbeautify'
-Plug 'elzr/vim-json'
 Plug 'justmao945/vim-clang'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'akinsho/toggleterm.nvim', { 'tag': 'v2.*'}
-
 Plug 'github/copilot.vim'
 
 " Avante
@@ -68,6 +66,7 @@ set splitright   " split window right
 set background=dark
 set wildignore=*.o,*.class,*.pyc " ignore these files while expanding wild chars
 set sessionoptions-=options
+set termguicolors
 colorscheme catppuccin
 
 " netrw
@@ -192,14 +191,32 @@ end
 vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
 -- lualine
-require('lualine').setup{}
+require('lualine').setup {
+    options = {
+        theme = "catppuccin",
+    },
+}
 
 -- bufferline
-require("bufferline").setup{}
+require("bufferline").setup {
+    options = {
+        mode = "tabs",
+        diagnostics = "coc",
+        numbers = "ordinal",
+    },
+}
 
 -- avante
 require('avante_lib').load()
 require('avante').setup {
   provider = 'copilot',
+}
+
+-- catppuccin
+require("catppuccin").setup {
+    integrations = {
+        coc_nvim = true,
+        gitgutter = true,
+    },
 }
 EOF
