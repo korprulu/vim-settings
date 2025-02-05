@@ -192,6 +192,14 @@ require('lualine').setup {
     options = {
         theme = "catppuccin",
     },
+    sections = {
+        lualine_c = {
+            {
+                "filename",
+                path = 1,
+            },
+        },
+    },
 }
 
 -- bufferline
@@ -205,7 +213,7 @@ require("bufferline").setup {
 
 -- Copilot
 require("CopilotChat").setup {
-    model = "claude-3.5-sonnet",
+    -- model = "claude-3.5-sonnet",
     window = {
         width = 0.4,
     },
