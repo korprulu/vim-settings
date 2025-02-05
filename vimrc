@@ -103,8 +103,8 @@ autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
 
 " tab navigation
-nnoremap <C-Left> gT
-nnoremap <C-Right> gt
+nnoremap <S-Left> gT
+nnoremap <S-Right> gt
 
 " plantuml
 if !empty(expand(glob('.plantuml-exec-script')))
