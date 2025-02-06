@@ -64,6 +64,7 @@ set background=dark
 set wildignore=*.o,*.class,*.pyc " ignore these files while expanding wild chars
 set sessionoptions-=options
 set termguicolors
+set switchbuf+=newtab " open new file in new tab
 colorscheme catppuccin
 
 " netrw
