@@ -14,9 +14,9 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 Plug 'maksimr/vim-jsbeautify'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'akinsho/toggleterm.nvim', { 'tag': 'v2.*'}
+Plug 'akinsho/toggleterm.nvim', { 'tag': 'v2.13.1'}
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v4.9.1' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
 
 " Copilot
@@ -64,8 +64,7 @@ set background=dark
 set wildignore=*.o,*.class,*.pyc " ignore these files while expanding wild chars
 set sessionoptions-=options
 set termguicolors
-set switchbuf+=newtab " open new file in new tab
-colorscheme catppuccin
+colorscheme catppuccin-macchiato
 
 " netrw
 nmap <leader>n :Lexplore<CR>
@@ -75,7 +74,7 @@ let g:netrw_winsize = 20
 
 " vim-go
 " gofumpt https://github.com/mvdan/gofumpt
-let g:go_fmt_command = "gofumpt"
+let g:go_fmt_command = "gofmt"
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_rename_command='gopls'
@@ -168,6 +167,7 @@ let g:gitgutter_preview_win_floating = 0
 nmap ghp <Plug>(GitGutterPreviewHunk)
 nmap ghs <Plug>(GitGutterStageHunk)
 nmap ghu <Plug>(GitGutterUndoHunk)
+nmap ghn <Plug>(GitGutterNextHunk)
 
 lua << EOF
 -- toggleterm
