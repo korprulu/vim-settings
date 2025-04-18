@@ -6,18 +6,20 @@
 
 call plug#begin()
 
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'folke/tokyonight.nvim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'preservim/tagbar'
+Plug 'stevearc/aerial.nvim'
 Plug 'airblade/vim-gitgutter'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
-Plug 'maksimr/vim-jsbeautify'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'akinsho/toggleterm.nvim', { 'tag': 'v2.13.1'}
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v4.9.1' }
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.8' }
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+Plug 'f-person/git-blame.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neovim/nvim-lspconfig'
 
 " Copilot
 Plug 'github/copilot.vim'
@@ -64,7 +66,7 @@ set background=dark
 set wildignore=*.o,*.class,*.pyc " ignore these files while expanding wild chars
 set sessionoptions-=options
 set termguicolors
-colorscheme catppuccin-macchiato
+colorscheme tokyonight
 
 " netrw
 nmap <leader>n :Lexplore<CR>
@@ -85,22 +87,6 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 " autocmd BufWritePre *.go :GoLint
 " let g:go_list_type = \"quickfix\"
 " autocmd FileType go set omnifunc=gocomplete#Complete
-
-" tagbar
-nnoremap <silent><F7> :TagbarToggle<CR>
-let g:tagbar_width = 50
-" tagbar for php
-" let g:tagbar_phpctags_bin='/usr/local/bin/phpctags'
-" let g:tagbar_phpctags_memory_limit = '512M'
-"
-" tagbar for golang
-" install https://github.com/jstemmer/gotags
-
-" vim-jsbeautify
-autocmd FileType javascript noremap <buffer> <leader>f  :call JsBeautify()<cr>
-autocmd FileType json noremap <buffer> <leader>f :call JsonBeautify()<cr>
-autocmd FileType html noremap <buffer> <leader>f :call HtmlBeautify()<cr>
-autocmd FileType css noremap <buffer> <leader>f :call CSSBeautify()<cr>
 
 " tab navigation
 nnoremap <S-Left> gT
@@ -191,7 +177,7 @@ vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 -- lualine
 require('lualine').setup {
     options = {
-        theme = "catppuccin",
+        theme = "tokyonight",
     },
     sections = {
         lualine_c = {
@@ -239,11 +225,13 @@ require("CopilotChat").setup {
     },
 }
 
--- catppuccin
-require("catppuccin").setup {
-    integrations = {
-        coc_nvim = true,
-        gitgutter = true,
-    },
+-- Aerial
+require('aerial').setup {
+    on_attach = function(bufnr)
+        local opts = { buffer = bufnr }
+        vim.keymap.set('n', '{', '<cmd>AerialPrev<CR>', opts)
+        vim.keymap.set('n', '}', '<cmd>AerialNext<CR>', opts)
+    end,
 }
-EOF
+vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+require'lspconfig'.gopls.setup{}
