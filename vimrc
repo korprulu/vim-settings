@@ -19,7 +19,6 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v4.9.1' }
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'f-person/git-blame.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'neovim/nvim-lspconfig'
 
 " Copilot
 Plug 'github/copilot.vim'
@@ -87,6 +86,7 @@ au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 " autocmd BufWritePre *.go :GoLint
 " let g:go_list_type = \"quickfix\"
 " autocmd FileType go set omnifunc=gocomplete#Complete
+nnoremap <silent> <C-[> :GoImplements<CR>
 
 " tab navigation
 nnoremap <S-Left> gT
@@ -125,6 +125,7 @@ autocmd BufWritePre *.ts :call CocAction('runCommand', 'editor.action.organizeIm
 " Copilot
 imap <silent><script><expr> <C-A> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+nnoremap <leader>c :CopilotChatToggle<CR>
 
 " typescript-vim
 let g:typescript_indent_disable = 1
@@ -153,6 +154,7 @@ let g:gitgutter_preview_win_floating = 0
 nmap ghp <Plug>(GitGutterPreviewHunk)
 nmap ghs <Plug>(GitGutterStageHunk)
 nmap ghu <Plug>(GitGutterUndoHunk)
+nmap ghpp <Plug>(GitGutterPrevHunk)
 nmap ghn <Plug>(GitGutterNextHunk)
 
 lua << EOF
@@ -176,9 +178,6 @@ vim.cmd('autocmd! TermOpen term://*toggleterm#* lua set_terminal_keymaps()')
 
 -- lualine
 require('lualine').setup {
-    options = {
-        theme = "tokyonight",
-    },
     sections = {
         lualine_c = {
             {
@@ -234,4 +233,3 @@ require('aerial').setup {
     end,
 }
 vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
-require'lspconfig'.gopls.setup{}
