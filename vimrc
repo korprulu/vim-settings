@@ -16,10 +16,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'akinsho/toggleterm.nvim', { 'tag': 'v2.13.1'}
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v4.9.1' }
-Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'f-person/git-blame.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'saecki/crates.nvim', { 'tag': 'stable' } " Rust crates
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.x' }
+Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 " Copilot
 Plug 'github/copilot.vim'
@@ -201,28 +202,8 @@ require("bufferline").setup {
 -- Copilot
 require("CopilotChat").setup {
     -- model = "claude-3.5-sonnet",
-    agent = 'copilot',
     window = {
         width = 0.4,
-    },
-    contexts = {
-        file = {
-            input = function(callback)
-                local telescope = require("telescope.builtin")
-                local actions = require("telescope.actions")
-                local action_state = require("telescope.actions.state")
-                telescope.find_files({
-                    attach_mappings = function(prompt_bufnr)
-                        actions.select_default:replace(function()
-                        actions.close(prompt_bufnr)
-                        local selection = action_state.get_selected_entry()
-                        callback(selection[1])
-                        end)
-                        return true
-                    end,
-                })
-            end,
-        },
     },
 }
 
@@ -238,3 +219,32 @@ vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
 
 -- crates.nvim
 require('crates').setup()
+
+-- telescope-ui-select
+-- This is your opts table
+require("telescope").setup {
+  extensions = {
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      }
+
+      -- pseudo code / specification for writing custom displays, like the one
+      -- for "codeactions"
+      -- specific_opts = {
+      --   [kind] = {
+      --     make_indexed = function(items) -> indexed_items, width,
+      --     make_displayer = function(widths) -> displayer
+      --     make_display = function(displayer) -> function(e)
+      --     make_ordinal = function(e) -> string
+      --   },
+      --   -- for example to disable the custom builtin "codeactions" display
+      --      do the following
+      --   codeactions = false,
+      -- }
+    }
+  }
+}
+-- To get ui-select loaded and working with telescope, you need to call
+-- load_extension, somewhere after setup function:
+require("telescope").load_extension("ui-select")
