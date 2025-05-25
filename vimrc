@@ -19,6 +19,7 @@ Plug 'akinsho/bufferline.nvim', { 'tag': 'v4.9.1' }
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'f-person/git-blame.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'saecki/crates.nvim', { 'tag': 'stable' } " Rust crates
 
 " Copilot
 Plug 'github/copilot.vim'
@@ -200,6 +201,7 @@ require("bufferline").setup {
 -- Copilot
 require("CopilotChat").setup {
     -- model = "claude-3.5-sonnet",
+    agent = 'copilot',
     window = {
         width = 0.4,
     },
@@ -233,3 +235,6 @@ require('aerial').setup {
     end,
 }
 vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
+
+-- crates.nvim
+require('crates').setup()
